@@ -10,10 +10,10 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: Load & cache dependencies
-        uses: ./.gitub/actions/cached-deps
+        uses: ./.github/actions/cached-deps
       - name: Cache dependencies
         id: cache-deps
-        uses: ./.gitub/actions/cached-deps
+        uses: ./.github/actions/cached-deps
         with:
           caching: 'false'
       - name: Output Information
