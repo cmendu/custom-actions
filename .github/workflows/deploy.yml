@@ -12,10 +12,12 @@ jobs:
       - name: Load & cache dependencies
         uses: ./.gitub/actions/cached-deps
       - name: Cache dependencies
-        
+        id: cache-deps
         uses: ./.gitub/actions/cached-deps
         with:
           caching: 'false'
+      - name: Output Information
+        run: echo "Cahce used? ${{ steps.install.outputs.cache }}"
 
        
       - name: Lint code
