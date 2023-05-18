@@ -12,14 +12,12 @@ jobs:
       - name: Load & cache dependencies
         uses: ./.gitub/actions/cached-deps
       - name: Cache dependencies
-        id: cache
-        uses: actions/cache@v3
+        
+        uses: ./.gitub/actions/cached-deps
         with:
-          path: node_modules
-          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
-      - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci
+          caching: 'false'
+
+       
       - name: Lint code
         run: npm run lint
   test:
